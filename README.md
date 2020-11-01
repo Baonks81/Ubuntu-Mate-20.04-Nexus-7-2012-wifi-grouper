@@ -1,6 +1,6 @@
 # Ubuntu-Mate-20.04-Nexus-7-2012-wifi-grouper
 
-Vừa làm xong Ubuntu Mate cho Nexus 7 2012 kernel 5.9 theo hướng dẫn của Worldblender trên xda-developers
+Ubuntu Mate for Nexus 7 2012 wifi grouper kernel 5.9 following Worldblender's guide on xda-developers
 
 
 
@@ -12,21 +12,28 @@ https://github.com/grate-driver/linux/issues/8
 
 
 
-Các bước chuẩn bị tạo .img cơ bản như sau:
+Basic preparation to create .img from ubuntu mate for rpi 32bit:
 
 
 
-Extract asus-grouper.img để lấy boot.img, initramfs, vmlinux, extend, kernel modules, firmware
+1.Extract asus-grouper.img to getting boot.img, initramfs, vmlinux, extend, kernel modules, firmware
+
 http://www.mediafire.com/file/yonz1jh5f05lsrz/lib.zip/file
+
 http://www.mediafire.com/file/g6nvcxij1am0zr0/boot.zip/file
-Download ubuntu-mate-20.04-beta1_for-acer-iconia-picasso.img và push vào usb 8GB trở lên bằng GNU Win32 Disk Imager hoặc các soft trên Linux, có 2 partition là pmOS_boot và pmOS_root
-Xóa và chép boot.img, initramfs, vmlinux, extend vào pmOS_boot partition
-Chép kernel modules, firmware vào /lib trên pmOS_root
-Sửa /etc/fstab vì kernel 5.9 tự tìm LABEL để khởi động
-Sửa hosts bằng cách thêm dòng 127.0.1.1 ubuntu
-Chép sysctl.conf vào /opt để chỉnh lại virtual memory nếu cần. Chép resolv.conf từ host vào /etc
-Dùng dd, losetup, partprobe, gparted, truncate để tạo và cắt vùng unallocated trong file .img cho vừa kích thước userdata trên Nexus7 8GB(có thể dùng với 16GB và 32GB)
-Để chroot được thì phải có host chạy Linux cho armv7hf
+
+2.Download ubuntu-mate-20.04-beta1_for-acer-iconia-picasso.img and push it into usb 8GB or more space. Using GNU Win32 Disk Imager or Linux dd command, it had 2 partition: pmOS_boot and pmOS_root
+
+3.Delete and copy boot.img, initramfs, vmlinux, extend into pmOS_boot partition
+
+4.Copy kernel modules, firmware into /lib on pmOS_root partition
+5.Edit /etc/fstab because of kernel 5.9 auto searching LABEL booting
+6.Insert /etc/hosts this line 127.0.1.1 ubuntu
+7.Copy sysctl.conf into /opt for virtual memory. Copy resolv.conf from host into /etc
+
+8.Using dd, losetup, partprobe, gparted, truncate creating and cutting unallocated .img file using for Nexus7 8GB(16GB and 32GB)
+
+9.Using chroot host have to run Linux armv7hf
 
 
 
