@@ -27,8 +27,11 @@ http://www.mediafire.com/file/g6nvcxij1am0zr0/boot.zip/file
 3.Delete and copy boot.img, initramfs, vmlinux, extend into pmOS_boot partition
 
 4.Copy kernel modules, firmware into /lib on pmOS_root partition
+
 5.Edit /etc/fstab because of kernel 5.9 auto searching LABEL booting
+
 6.Insert /etc/hosts this line 127.0.1.1 ubuntu
+
 7.Copy sysctl.conf into /opt for virtual memory. Copy resolv.conf from host into /etc
 
 8.Using dd, losetup, partprobe, gparted, truncate creating and cutting unallocated .img file using for Nexus7 8GB(16GB and 32GB)
