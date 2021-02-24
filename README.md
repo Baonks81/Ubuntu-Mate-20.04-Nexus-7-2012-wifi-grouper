@@ -53,10 +53,14 @@ umount mmcblk0p9 in adb shell trên PC/laptop or Twrp Advance/Terminal (2 times)
 
 
 adb push <filename>.img to mmcblk0p9 and enjoy it. Or download it here:
+  
+ubuntu mate 20.04 alpha testing for nexus 7 2012 wifi - grouper
 
 https://drive.google.com/file/d/1Lx338vvTjIqB-s3RACZPGsDf7-a7qayZ/view?usp=sharing
 
+ubuntu mate 20.04.1 for nexus 7 2012 wifi - grouper:
 
+https://drive.google.com/file/d/1h2opdW11MjR-_aWEx6ApMujdf4djANRg/view?usp=sharing
 
 Add grate-driver PPA
 
