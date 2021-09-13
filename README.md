@@ -117,7 +117,13 @@ Hoặc tải .img ở đây:
 
 
 
-Bản chính thức ubuntu mate 20.04.1 sẽ update lại link sau
+Bản chính thức ubuntu mate 20.04.1 f2fs rootfs
+
+https://drive.google.com/drive/folders/173rpkppVvYtpVDfseaZUxUEqk4B5PSLy?usp=sharing
+
+
+
+Bản chính thức ubuntu mate 20.04.1 etx4 rootfs
 
 https://drive.google.com/drive/folders/1F8I5vrOtpAx3VSINj00TaCMOOPFWgZAS?usp=sharing
 
@@ -359,9 +365,9 @@ echo 2 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor
 
 
 
-# Reduce the boost sampling_rate to 30000
+# Reduce the boost sampling_rate to 20000
 
-echo 30000 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
+echo 20000 > /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate
 
 
 
@@ -387,7 +393,7 @@ Low_temp = max_temp - 2
 
 
 
-$ sh temp_throttle 53
+$ sh temp_throttle 58
 
 
 
@@ -413,7 +419,7 @@ Settings → Sessions and Applications Startup
 
 
 
-Command: sudo /path/to/temp_throttle 53
+Command: sudo /path/to/temp_throttle 58
 
 
 
@@ -521,7 +527,7 @@ https://github.com/donbowman/kde-auto-rotate
 
 
 
-Switch code left-up to normal, switch code right-up to bottom-up. Following readme to install
+Switch code left-up to normal, switch code right-up to bottom-up. Following readme to install or download edit package: https://www.mediafire.com/file/pvfqfm2zee84xzz/
 
 
 
@@ -617,7 +623,7 @@ $ sudo nano /etc/chromium/local.conf
 
 
 
-unset BACKEND
+unset GDK_BACKEND
 
 
 
@@ -626,6 +632,18 @@ $ sudo nano /usr/share/applications/chromium.desktop
 
 
 Exec=/usr/bin/chromium %U → Exec=/usr/bin/chromium --use-gl=egl %U
+
+
+
+***Fix authenticatilon require on chromium***
+
+
+
+$ sudo apt install seahorse
+
+
+
+Cretate new key Password keyring → name “Default keyring”
 
 
 
@@ -649,23 +667,35 @@ $ sudo nfctool -d nfc0 -1 -p
 
 
 
-Connect Nexus 7 to PC/Laptop using micro-usb cable
+Connect Nexus 7 to PC/Laptop using micro-usb cable, enter TWRP recovery mode → Advance → Terminal
 
 
 
-Backup boot: # sudo dd if=/dev/block/mmcblk0p2 of=/path/to/boot-kernel-5.14-rc3-next-grate.img
+# df
 
 
 
-Backup rootfs for grouper(wifi): # sudo dd if=/dev/block/mmcblk0p9 of=/path/to/rootfs.img
+On PC/Laptop
 
 
 
-Backup rootfs for tilapia(3G): # sudo dd if=/dev/block/mmcblk0p10 of=/path/to/rootfs.img
+# adb start-server
 
 
 
-Backup full: sudo dd if=/dev/block/mmcblk0 of=/path/to/full_backup_mmcblk0.img
+Backup boot: # sudo adb pull /dev/block/mmcblk0p2 /path/to/boot-kernel-5.14-rc3-next-grate.img
+
+
+
+Backup rootfs for grouper(wifi): # sudo adb pull /dev/block/mmcblk0p9 /path/to/rootfs.img
+
+
+
+Backup rootfs for tilapia(3G): # sudo adb pull /dev/block/mmcblk0p10 /path/to/rootfs.img
+
+
+
+Backup full: sudo adb pull /dev/block/mmcblk0 /path/to/full_backup_mmcblk0.img
 
 
 
